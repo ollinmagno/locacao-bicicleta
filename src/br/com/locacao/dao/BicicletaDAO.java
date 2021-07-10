@@ -2,7 +2,10 @@ package br.com.locacao.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import br.com.locacao.modelo.Bicicleta;
 
@@ -22,5 +25,27 @@ public class BicicletaDAO {
 		}
 	}
 
-	
+	public List<Bicicleta> listaBicicletas() throws SQLException {
+		List<Bicicleta> bicicletas = new ArrayList<Bicicleta>();
+
+		String sql = "SELECT ARO, COR, MARCHAS FROM BICICLETA";
+		try (Connection connection = new ConnectionFactory().recuperarConexao()) {
+			try (PreparedStatement pstm = connection.prepareStatement(sql)) {
+				try (ResultSet resultset = pstm.executeQuery()) {
+					while (resultset.next()) {
+						Bicicleta bicicleta = new Bicicleta();
+						bicicleta.setAro(resultset.getInt(1));
+						bicicleta.setCor(resultset.getString(2));
+						bicicleta.setMarchas(resultset.getInt(3));
+						bicicletas.add(bicicleta);
+					}
+				}catch(SQLException e) {
+					System.out.println(e);
+				}
+
+			}
+		}
+		return bicicletas;
+	}
+
 }
