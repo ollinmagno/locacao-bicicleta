@@ -10,6 +10,12 @@ public class ConnectionFactory {
 	DataSource dataSource;
 	
 	public ConnectionFactory() {
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		ComboPooledDataSource comboPooledDataSource = new ComboPooledDataSource();
 		comboPooledDataSource.setJdbcUrl("jdbc:mysql://localhost/locacao_bicicleta?useTimezone=true&serverTimezone=UTC");
 		comboPooledDataSource.setUser("root");
