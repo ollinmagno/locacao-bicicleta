@@ -12,9 +12,21 @@
 		</ui:define>
 
 		<ui:define name="conteudo">
-			<h:form>
-
-				
+			<h:form id="formTabelaBicicletas">
+				<h:dataTable value="#{bicicletaBean.bicicletas}" var="bicicleta" id="tabelaBicicletas">
+					<h:column>
+						<f:facet name="header">Aro</f:facet>
+						<h:outputText value="#{bicicleta.aro}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">Cor</f:facet>
+						<h:outputText value="#{bicicleta.cor}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">Marchas</f:facet>
+						<h:outputText value="#{bicicleta.marchas}"/>
+					</h:column>
+				</h:dataTable>
 			</h:form>
 		</ui:define>
 	</ui:composition>
