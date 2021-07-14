@@ -1,19 +1,31 @@
 package br.com.locacao.modelo;
 
 import java.time.LocalDateTime;
-import java.util.Date;
-import java.util.List;
 
 public class Locacao {
-	
 	private Integer id;
 	private Cliente cliente;
-	private List<Bicicleta> bicicletas;
-	private Date dataDaLocacao;
+	private Bicicleta bicicleta;
+	
 	private LocalDateTime horaDaLocacao;
 	private LocalDateTime devolucacao;
-	private double valorTotal;
+	private Situacao situacao;
 	
+	
+	public Locacao(Cliente cliente, Bicicleta bicicleta, Situacao situacao) {
+		this.cliente = cliente;
+		this.bicicleta = bicicleta;
+		this.horaDaLocacao = LocalDateTime.now();
+		this.devolucacao = LocalDateTime.now().minusHours(8);
+		this.situacao = situacao;
+	}
+	
+	public Situacao getSituacao() {
+		return situacao;
+	}
+	public void setSituacao(Situacao situacao) {
+		this.situacao = situacao;
+	}
 	public Integer getId() {
 		return id;
 	}
@@ -26,17 +38,11 @@ public class Locacao {
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
-	public List<Bicicleta> getBicicletas() {
-		return bicicletas;
+	public Bicicleta getBicicleta() {
+		return bicicleta;
 	}
-	public void setBicicletas(List<Bicicleta> bicicletas) {
-		this.bicicletas = bicicletas;
-	}
-	public Date getDataDaLocacao() {
-		return dataDaLocacao;
-	}
-	public void setDataDaLocacao(Date dataDaLocacao) {
-		this.dataDaLocacao = dataDaLocacao;
+	public void setBicicleta(Bicicleta bicicleta) {
+		this.bicicleta = bicicleta;
 	}
 	public LocalDateTime getHoraDaLocacao() {
 		return horaDaLocacao;
@@ -49,12 +55,6 @@ public class Locacao {
 	}
 	public void setDevolucacao(LocalDateTime devolucacao) {
 		this.devolucacao = devolucacao;
-	}
-	public double getValorTotal() {
-		return valorTotal;
-	}
-	public void setValorTotal(double valorTotal) {
-		this.valorTotal = valorTotal;
 	}
 	
 	
