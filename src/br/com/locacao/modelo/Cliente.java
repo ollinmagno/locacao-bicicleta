@@ -13,6 +13,9 @@ public class Cliente {
 	public Cliente() {
 		
 	}
+	public Cliente(Integer id) {
+		this.id = id;
+	}
 	public Cliente(String email, String senha) {
 		this.email = email;
 		this.senha = senha;
