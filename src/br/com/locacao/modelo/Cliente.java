@@ -6,6 +6,7 @@ public class Cliente {
 	
 	private Integer id;
 	private String email;
+	private String nome;
 	private String senha;
 	private String cpf;
 	private List<String> numeroContato;
@@ -16,11 +17,18 @@ public class Cliente {
 	public Cliente(Integer id) {
 		this.id = id;
 	}
-	public Cliente(String email, String senha) {
+	public Cliente(String nome, String email, String senha) {
 		this.email = email;
 		this.senha = senha;
+		this.nome = nome;
 	}
 	
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 	public Integer getId() {
 		return id;
 	}
