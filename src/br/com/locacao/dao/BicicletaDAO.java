@@ -8,16 +8,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.locacao.modelo.Bicicleta;
+import br.com.locacao.modelo.Modelo;
 
 public class BicicletaDAO {
 
-	public void adicionaBicicleta(Bicicleta bicicleta) throws SQLException {
-		String sql = "INSERT INTO bicicleta(ARO, COR, MARCHAS) VALUES(?,?,?)";
+	public void adicionaBicicleta(Bicicleta bicicleta, Modelo modelo) throws SQLException {
+		String sql = "INSERT INTO bicicleta(ARO, COR, MARCHAS, ID_FK_MODELO) VALUES(?,?,?,?)";
 		try (Connection connection = new ConnectionFactory().recuperarConexao()) {
 			try (PreparedStatement pstm = connection.prepareStatement(sql)) {
 				pstm.setInt(1, bicicleta.getAro());
 				pstm.setString(2, bicicleta.getCor());
 				pstm.setInt(3, bicicleta.getMarchas());
+				pstm.setInt(4, modelo.getId());
 				pstm.execute();
 			}
 		} catch (SQLException e) {
@@ -47,5 +49,6 @@ public class BicicletaDAO {
 		}
 		return bicicletas;
 	}
+	
 
 }
