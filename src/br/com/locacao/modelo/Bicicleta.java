@@ -6,17 +6,18 @@ public class Bicicleta {
 	private String cor;
 	private int marchas;
 	private int aro;
-	private Modelo modelo;
 	
 	public Bicicleta() {
 		
 	}
-	public Bicicleta(Integer id, int aro, String cor, int marchas, Modelo modelo) {
+	public Bicicleta(Integer id) {
+		this.id = id;
+	}
+	public Bicicleta(Integer id, int aro, String cor, int marchas) {
 		this.id = id;
 		this.cor = cor;
 		this.marchas = marchas;
 		this.aro = aro;
-		this.modelo = modelo;
 	}
 	
 	public Integer getId() {
@@ -42,12 +43,6 @@ public class Bicicleta {
 	}
 	public void setAro(int aro) {
 		this.aro = aro;
-	}
-	public Modelo getModelo() {
-		return modelo;
-	}
-	public void setModelo(Modelo modelo) {
-		this.modelo = modelo;
 	}
 	
 }
