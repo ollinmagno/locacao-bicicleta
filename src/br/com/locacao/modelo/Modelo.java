@@ -11,7 +11,6 @@ public class Modelo {
 	}
 	
 	public Modelo(Integer id, double precoPorHora, String marca) {
-		super();
 		this.id = id;
 		this.precoPorHora = precoPorHora;
 		this.marca = marca;
