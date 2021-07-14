@@ -11,7 +11,9 @@ public class Locacao {
 	private LocalDateTime devolucacao;
 	private Situacao situacao;
 	
-	
+	public Locacao() {
+		
+	}
 	public Locacao(Cliente cliente, Bicicleta bicicleta, Situacao situacao) {
 		this.cliente = cliente;
 		this.bicicleta = bicicleta;
