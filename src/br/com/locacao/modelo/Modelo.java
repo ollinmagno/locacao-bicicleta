@@ -6,6 +6,21 @@ public class Modelo {
 	private double precoPorHora;
 	private String marca;
 	
+	public Modelo() {
+		
+	}
+	
+	public Modelo(Integer id, double precoPorHora, String marca) {
+		super();
+		this.id = id;
+		this.precoPorHora = precoPorHora;
+		this.marca = marca;
+	}
+
+	public Modelo(Integer id) {
+		this.id = id;
+	}
+	
 	public Integer getId() {
 		return id;
 	}
