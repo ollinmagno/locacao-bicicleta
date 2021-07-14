@@ -34,23 +34,22 @@ public class LocacaoDAO {
 	}
 
 	public List<Locacao> historicoGeralDeLocacao() throws SQLException {
-		List<Locacao> historicoDeLocacao = new ArrayList<Locacao>();
+		List<Locacao> historicoDeLocacoes = new ArrayList<Locacao>();
+		
+		String sql = "SELECT HORA_DA_LOCACAO, DEVOLUCAO, NOME, CPF, STATUS\r\n" + 
+				"FROM LOCACAO JOIN CLIENTE ON ID_CLIENTE = CLIENTE.ID JOIN SITUACAO ON ID_SITUACAO = SITUACAO.ID";
 
-		String sql = "SELECT LOCACAO.HORA_DA_LOCACAO, LOCACAO.DEVOLUCAO, CLIENTE.NOME"
-				+ ", CLIENTE.CPF, SITUACAO.STATUS as SITUACAO\r\n"
-				+ "FROM LOCACAO JOIN CLIENTE ON LOCACAO.ID_CLIENTE = CLIENTE.ID"
-				+ " JOIN SITUACAO ON LOCACAO.ID_SITUACAO = SITUACAO.ID;";
 		try (Connection connection = new ConnectionFactory().recuperarConexao()) {
 			try (PreparedStatement pstm = connection.prepareStatement(sql)) {
 				try (ResultSet resultset = pstm.executeQuery()) {
 					while (resultset.next()) {
 						Locacao locacao = new Locacao();
-						//bicicleta.setAro(resultset.getInt(1));			
 						//locacao.setHoraDaLocacao(resultset.getInt(1));
-						//locacao.setDevolucacao(resultset.getInt(2));						
-						locacao.getCliente().setNome(resultset.getString(3));;
+						//locacao.setDevolucacao(resultset.getInt(2));
+						locacao.getCliente().setNome(resultset.getString(3));
 						locacao.getCliente().setCpf(resultset.getString(4));
 						locacao.getSituacao().setStatus(resultset.getString(5));
+						historicoDeLocacoes.add(locacao);
 					}
 				} catch (SQLException e) {
 					System.out.println(e);
@@ -58,6 +57,6 @@ public class LocacaoDAO {
 
 			}
 		}
-		return historicoDeLocacao;
+		return historicoDeLocacoes;
 	}
 }
