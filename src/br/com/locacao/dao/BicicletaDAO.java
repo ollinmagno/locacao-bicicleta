@@ -65,7 +65,8 @@ public class BicicletaDAO {
 				try (ResultSet resultset = pstm.executeQuery()) {
 					while (resultset.next()) {
 						bicicleta.setId(resultset.getInt(1));
-						bicicleta.setAro(resultset.getInt(2));
+						bicicleta.setAro(resultset.
+								getInt(2));
 						bicicleta.setCor(resultset.getString(3));
 						bicicleta.setMarchas(resultset.getInt(4));
 						bicicleta.getModelo().setMarca(resultset.getString(5));
