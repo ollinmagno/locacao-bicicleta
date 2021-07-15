@@ -12,14 +12,14 @@ import br.com.locacao.modelo.Modelo;
 
 public class BicicletaDAO {
 
-	public void adicionaBicicleta(Bicicleta bicicleta, Modelo modelo) throws SQLException {
-		String sql = "INSERT INTO bicicleta(ARO, COR, MARCHAS, ID_FK_MODELO) VALUES(?,?,?,?)";
+	public void adicionaBicicleta(Bicicleta bicicleta) throws SQLException {
+		String sql = "INSERT INTO bicicleta(ARO, COR, MARCHAS, ID_FK_MODELO) VALUES(?,?,?,?);";
 		try (Connection connection = new ConnectionFactory().recuperarConexao()) {
 			try (PreparedStatement pstm = connection.prepareStatement(sql)) {
 				pstm.setInt(1, bicicleta.getAro());
 				pstm.setString(2, bicicleta.getCor());
 				pstm.setInt(3, bicicleta.getMarchas());
-				pstm.setInt(4, modelo.getId());
+				pstm.setInt(4, bicicleta.getModelo().getId());
 				pstm.execute();
 			}
 		} catch (SQLException e) {
@@ -30,15 +30,19 @@ public class BicicletaDAO {
 	public List<Bicicleta> listaBicicletas() throws SQLException {
 		List<Bicicleta> bicicletas = new ArrayList<Bicicleta>();
 
-		String sql = "SELECT ARO, COR, MARCHAS FROM BICICLETA";
+		String sql = "SELECT BICICLETA.ID, ARO, COR, MARCHAS,\r\n" + 
+				"MARCA, PRECO_POR_HORA FROM BICICLETA JOIN MODELO ON BICICLETA.ID_FK_MODELO = MODELO.ID;";
 		try (Connection connection = new ConnectionFactory().recuperarConexao()) {
 			try (PreparedStatement pstm = connection.prepareStatement(sql)) {
 				try (ResultSet resultset = pstm.executeQuery()) {
 					while (resultset.next()) {
-						Bicicleta bicicleta = new Bicicleta();
-						bicicleta.setAro(resultset.getInt(1));
-						bicicleta.setCor(resultset.getString(2));
-						bicicleta.setMarchas(resultset.getInt(3));
+						Bicicleta bicicleta = new Bicicleta(new Modelo(1));
+						bicicleta.setId(resultset.getInt(1));
+						bicicleta.setAro(resultset.getInt(2));
+						bicicleta.setCor(resultset.getString(3));
+						bicicleta.setMarchas(resultset.getInt(4));
+						bicicleta.getModelo().setMarca(resultset.getString(5));	
+						bicicleta.getModelo().setPrecoPorHora(resultset.getDouble(6));
 						bicicletas.add(bicicleta);
 					}
 				}catch(SQLException e) {
