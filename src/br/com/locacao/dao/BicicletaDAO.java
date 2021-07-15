@@ -30,8 +30,8 @@ public class BicicletaDAO {
 	public List<Bicicleta> listaBicicletas() throws SQLException {
 		List<Bicicleta> bicicletas = new ArrayList<Bicicleta>();
 
-		String sql = "SELECT BICICLETA.ID, ARO, COR, MARCHAS,\r\n" + 
-				"MARCA, PRECO_POR_HORA FROM BICICLETA JOIN MODELO ON BICICLETA.ID_FK_MODELO = MODELO.ID;";
+		String sql = "SELECT BICICLETA.ID, ARO, COR, MARCHAS,\r\n"
+				+ "MARCA, PRECO_POR_HORA FROM BICICLETA JOIN MODELO ON BICICLETA.ID_FK_MODELO = MODELO.ID;";
 		try (Connection connection = new ConnectionFactory().recuperarConexao()) {
 			try (PreparedStatement pstm = connection.prepareStatement(sql)) {
 				try (ResultSet resultset = pstm.executeQuery()) {
@@ -41,11 +41,11 @@ public class BicicletaDAO {
 						bicicleta.setAro(resultset.getInt(2));
 						bicicleta.setCor(resultset.getString(3));
 						bicicleta.setMarchas(resultset.getInt(4));
-						bicicleta.getModelo().setMarca(resultset.getString(5));	
+						bicicleta.getModelo().setMarca(resultset.getString(5));
 						bicicleta.getModelo().setPrecoPorHora(resultset.getDouble(6));
 						bicicletas.add(bicicleta);
 					}
-				}catch(SQLException e) {
+				} catch (SQLException e) {
 					System.out.println(e);
 				}
 
@@ -53,6 +53,30 @@ public class BicicletaDAO {
 		}
 		return bicicletas;
 	}
-	
+
+	public Bicicleta buscarBicicleta(int id) {
+		Bicicleta bicicleta = new Bicicleta(new Modelo(1));
+		String sql = "SELECT BICICLETA.ID, ARO, COR, MARCHAS, MARCA, PRECO_POR_HORA FROM BICICLETA"
+				+ " JOIN MODELO ON BICICLETA.ID_FK_MODELO = MODELO.ID WHERE BICICLETA.ID = ?";
+
+		try (Connection connection = new ConnectionFactory().recuperarConexao()) {
+			try (PreparedStatement pstm = connection.prepareStatement(sql)) {
+				pstm.setInt(1, id);
+				try (ResultSet resultset = pstm.executeQuery()) {
+					while (resultset.next()) {
+						bicicleta.setId(resultset.getInt(1));
+						bicicleta.setAro(resultset.getInt(2));
+						bicicleta.setCor(resultset.getString(3));
+						bicicleta.setMarchas(resultset.getInt(4));
+						bicicleta.getModelo().setMarca(resultset.getString(5));
+						bicicleta.getModelo().setPrecoPorHora(resultset.getDouble(6));
+					}
+				}
+			}
+		} catch (SQLException e) {
+			System.out.println(e);
+		}
+		return bicicleta;
+	}
 
 }
