@@ -54,5 +54,10 @@ public class Bicicleta {
 	public void setAro(int aro) {
 		this.aro = aro;
 	}
+	@Override
+	public String toString() {
+		return "Bicicleta [id=" + id + ", cor=" + cor + ", marchas=" + marchas + ", aro=" + aro + ", modelo=" + modelo.getMarca()
+				+ "]";
+	}
 	
 }
