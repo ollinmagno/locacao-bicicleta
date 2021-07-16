@@ -22,5 +22,8 @@ public class BicicletaBean {
 	public List<Bicicleta> getBicicletas() throws SQLException{
 		return this.daoBicicleta.listaBicicletas();
 	}
+	public Bicicleta getBicicleta(int id) throws SQLException{
+		return this.daoBicicleta.buscarBicicleta(id);
+	}
 	
 }
