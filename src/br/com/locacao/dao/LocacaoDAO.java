@@ -18,14 +18,14 @@ public class LocacaoDAO {
 
 	public void fazerLocacao(Locacao locacao) throws SQLException {
 		String sql = "INSERT INTO LOCACAO(hora_da_locacao, devolucao, id_cliente, id_situacao, id_bicicleta)"
-				+ " VALUES(CURRENT_TIMESTAMP, ?, ?, ?, ?)";
+				+ " VALUES(?, ?, ?, ?, ?)";
 		try (Connection connection = new ConnectionFactory().recuperarConexao()) {
 			try (PreparedStatement pstm = connection.prepareStatement(sql)) {
-				// pstm.setDate(1, new java.sql.Date(locacao.getHoraDaLocacao().getHour()));
-				pstm.setDate(1, new java.sql.Date(locacao.getDevolucacao().getHour()));
-				pstm.setInt(2, locacao.getCliente().getId());
-				pstm.setInt(3, locacao.getSituacao().getId());
-				pstm.setInt(4, locacao.getBicicleta().getId());
+				pstm.setDate(1, new java.sql.Date(locacao.getHoraDaLocacao().getHour()));
+				pstm.setDate(2, new java.sql.Date(locacao.getDevolucacao().getHour()));
+				pstm.setInt(3, locacao.getCliente().getId());
+				pstm.setInt(4, locacao.getSituacao().getId());
+				pstm.setInt(5, locacao.getBicicleta().getId());
 				pstm.execute();
 			}
 		} catch (SQLException e) {
@@ -43,7 +43,7 @@ public class LocacaoDAO {
 			try (PreparedStatement pstm = connection.prepareStatement(sql)) {
 				try (ResultSet resultset = pstm.executeQuery()) {
 					while (resultset.next()) {
-						Locacao locacao = new Locacao();
+						Locacao locacao = new Locacao(new Cliente(1), new Bicicleta(1), new Situacao(1));
 						//locacao.setHoraDaLocacao(resultset.getInt(1));
 						//locacao.setDevolucacao(resultset.getInt(2));
 						locacao.getCliente().setNome(resultset.getString(3));
