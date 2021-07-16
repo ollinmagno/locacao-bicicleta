@@ -26,6 +26,14 @@
 						<f:facet name="header">Marchas</f:facet>
 						<h:outputText value="#{bicicleta.marchas}"/>
 					</h:column>
+					<h:column>
+						<f:facet name="header">Modelo</f:facet>
+						<h:outputText value="#{bicicleta.modelo.marca}"/>
+					</h:column>
+					<h:column>
+						<f:facet name="header">Preço por hora</f:facet>
+						<h:outputText value="R$#{bicicleta.modelo.precoPorHora}"/>
+					</h:column>
 				</h:dataTable>
 			</h:form>
 		</ui:define>
