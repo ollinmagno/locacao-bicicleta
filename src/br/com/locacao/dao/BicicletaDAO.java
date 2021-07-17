@@ -55,7 +55,7 @@ public class BicicletaDAO {
 	}
 
 	public Bicicleta buscarBicicleta(int id) {
-		Bicicleta bicicleta = new Bicicleta(new Modelo(1));
+		Bicicleta bicicleta = new Bicicleta(new Modelo());
 		String sql = "SELECT BICICLETA.ID, ARO, COR, MARCHAS, MARCA, PRECO_POR_HORA FROM BICICLETA"
 				+ " JOIN MODELO ON BICICLETA.ID_FK_MODELO = MODELO.ID WHERE BICICLETA.ID = ?";
 
@@ -69,7 +69,7 @@ public class BicicletaDAO {
 								getInt(2));
 						bicicleta.setCor(resultset.getString(3));
 						bicicleta.setMarchas(resultset.getInt(4));
-						bicicleta.getModelo().setMarca(resultset.getString(5));
+						bicicleta.getModelo().setMarca(resultset.getString(5));	
 						bicicleta.getModelo().setPrecoPorHora(resultset.getDouble(6));
 					}
 				}
