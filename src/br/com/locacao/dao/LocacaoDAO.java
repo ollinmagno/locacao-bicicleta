@@ -42,7 +42,7 @@ public class LocacaoDAO {
 			try (PreparedStatement pstm = connection.prepareStatement(sql)) {
 				try (ResultSet resultset = pstm.executeQuery()) {
 					while (resultset.next()) {
-						Locacao locacao = new Locacao(new Cliente(1), new Bicicleta(1), new Situacao(1));
+						Locacao locacao = new Locacao(new Cliente(), new Bicicleta(), new Situacao());
 						// locacao.setHoraDaLocacao(resultset.getInt(1));
 						// locacao.setDevolucacao(resultset.getInt(2));
 						locacao.getCliente().setNome(resultset.getString(3));
@@ -71,7 +71,7 @@ public class LocacaoDAO {
 				pstm.setInt(1, situacao);
 				try (ResultSet resultset = pstm.executeQuery()) {
 					while (resultset.next()) {
-						Locacao locacao = new Locacao(new Cliente(1), new Bicicleta(1), new Situacao(1));
+						Locacao locacao = new Locacao(new Cliente(), new Bicicleta(), new Situacao());
 						// locacao.setHoraDaLocacao(resultset.getInt(1));
 						// locacao.setDevolucacao(resultset.getInt(2));
 						locacao.getCliente().setNome(resultset.getString(3));
