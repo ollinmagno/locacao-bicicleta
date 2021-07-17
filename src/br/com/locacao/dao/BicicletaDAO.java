@@ -36,7 +36,7 @@ public class BicicletaDAO {
 			try (PreparedStatement pstm = connection.prepareStatement(sql)) {
 				try (ResultSet resultset = pstm.executeQuery()) {
 					while (resultset.next()) {
-						Bicicleta bicicleta = new Bicicleta(new Modelo(1));
+						Bicicleta bicicleta = new Bicicleta(new Modelo());
 						bicicleta.setId(resultset.getInt(1));
 						bicicleta.setAro(resultset.getInt(2));
 						bicicleta.setCor(resultset.getString(3));
