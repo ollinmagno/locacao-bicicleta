@@ -15,10 +15,6 @@ public class Modelo {
 		this.precoPorHora = precoPorHora;
 		this.marca = marca;
 	}
-
-	public Modelo(Integer id) {
-		this.id = id;
-	}
 	
 	public Integer getId() {
 		return id;

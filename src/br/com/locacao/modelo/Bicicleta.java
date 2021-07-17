@@ -12,10 +12,6 @@ public class Bicicleta {
 
 	}
 
-	public Bicicleta(Integer id) {
-		this.id = id;
-	}
-
 	public Bicicleta(Modelo modelo) {
 		this.modelo = modelo;
 	}
