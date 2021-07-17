@@ -18,5 +18,8 @@ public class LocacaoBean {
 	public List<Locacao> getLocacoes() throws SQLException{
 		return this.daoLocacao.historicoGeralDeLocacao();
 	}
+	public List<Locacao> getSituacaoDaLocacao(int situacao) throws SQLException{
+		return this.daoLocacao.verificarSituacaoDaLocacao(situacao);
+	}
 	
 }
