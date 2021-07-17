@@ -59,15 +59,16 @@ public class LocacaoDAO {
 		return historicoDeLocacoes;
 	}
 
-	public List<Locacao> verificarLocacoesEmAtraso() throws SQLException {
+	public List<Locacao> verificarSituacaoDaLocacao(int situacao) throws SQLException {
 		List<Locacao> verificarLocacoesEmAtraso = new ArrayList<Locacao>();
 
 		String sql = "SELECT HORA_DA_LOCACAO, DEVOLUCAO, NOME, CPF, STATUS FROM "
 				+ "LOCACAO JOIN CLIENTE ON ID_CLIENTE = CLIENTE.ID JOIN SITUACAO "
-				+ "ON ID_SITUACAO = SITUACAO.ID WHERE ID_SITUACAO = 2";
+				+ "ON ID_SITUACAO = SITUACAO.ID WHERE ID_SITUACAO = ?";
 
 		try (Connection connection = new ConnectionFactory().recuperarConexao()) {
 			try (PreparedStatement pstm = connection.prepareStatement(sql)) {
+				pstm.setInt(1, situacao);
 				try (ResultSet resultset = pstm.executeQuery()) {
 					while (resultset.next()) {
 						Locacao locacao = new Locacao(new Cliente(1), new Bicicleta(1), new Situacao(1));
