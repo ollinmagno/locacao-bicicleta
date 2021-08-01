@@ -1,4 +1,23 @@
-# locacao-bicicleta
+# SISTEMA DE LOCAÇÃO DE BICICLETAS
 
+<p align="center">Sistema legado de locação de bicicletas feito em Java 🚀</p>
 
-sql: https://gist.github.com/ollinmagno/aa539516f97a839bcd4dbe0b46363f83
+<div align="center">
+
+![technology]()
+
+</div>
+
+## Projeto
+Projeto desenvolvido com JSF + JDBC + PRIMEFACES;
+
+Padrão arquitetural baseado em **MVC**
+	
+## Arquitetura do projeto
+O padrão arquitetural adotado neste projeto é o **MVC (Model-View-Controller)**. 
+
+### Requisitos de instalação
+
+### Como usar
+	
+### Bibliotecas
