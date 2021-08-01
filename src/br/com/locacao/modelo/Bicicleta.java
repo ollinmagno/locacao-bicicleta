@@ -5,6 +5,8 @@ public class Bicicleta {
 	private Integer id;
 	private String cor;
 	private int marchas;
+	private boolean disponivel;
+	private boolean desativada;
 	private int aro;
 	private Modelo modelo;
 
@@ -16,11 +18,29 @@ public class Bicicleta {
 		this.modelo = modelo;
 	}
 
-	public Bicicleta(int aro, String cor, int marchas, Modelo modelo) {
+	public Bicicleta(String cor, int marchas, boolean disponivel, boolean desativada, int aro, Modelo modelo) {
 		this.cor = cor;
 		this.marchas = marchas;
+		this.disponivel = disponivel;
+		this.desativada = desativada;
 		this.aro = aro;
 		this.modelo = modelo;
+	}
+
+	public boolean isDesativada() {
+		return desativada;
+	}
+
+	public void setDesativada(boolean desativada) {
+		this.desativada = desativada;
+	}
+
+	public boolean isDisponivel() {
+		return disponivel;
+	}
+
+	public void setDisponivel(boolean disponivel) {
+		this.disponivel = disponivel;
 	}
 
 	public Modelo getModelo() {
