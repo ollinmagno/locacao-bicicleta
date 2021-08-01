@@ -41,4 +41,4 @@ O padrão arquitetural adotado neste projeto é o **MVC (Model-View-Controller)*
 
 * [javax.faces-2.2.13](https://mvnrepository.com/artifact/org.glassfish/javax.faces/2.2.13)
 
-* [javax.faces-2.2.13](https://mvnrepository.com/artifact/org.javassist/javassist/3.15.0-GA)
+* [javassist-3.15.0-GA](https://mvnrepository.com/artifact/org.javassist/javassist/3.15.0-GA)
