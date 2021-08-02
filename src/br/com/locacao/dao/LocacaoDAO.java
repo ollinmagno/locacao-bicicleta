@@ -15,11 +15,48 @@ import br.com.locacao.modelo.Modelo;
 import br.com.locacao.modelo.Situacao;
 
 public class LocacaoDAO {
-
-	public void fazerLocacao(Locacao locacao) throws SQLException {
+	
+	public void gravarLocacao(Locacao locacao) throws SQLException {
+		Connection connection = null;
+		try {
+			connection = new ConnectionFactory().recuperarConexao();
+			connection.setAutoCommit(false);
+			boolean inserirFuncionou = fazerLocacao(connection, locacao);
+			boolean setarBicicletaFuncionou = setarBicicletaComoIndisponivel(connection, locacao.getBicicleta());
+			
+			if(inserirFuncionou && setarBicicletaFuncionou) {
+				connection.commit();
+			}
+		}catch (SQLException e) {
+			System.out.println(e);
+		} finally {
+			connection.close();
+		}
+	}
+	
+	private boolean setarBicicletaComoIndisponivel(Connection connection, Bicicleta bicicleta) {
+		boolean funcionou = false;
+		String sql = "UPDATE BICICLETA SET DISPONIVEL = ? WHERE (ID = ?)";
+		
+		try {
+			try(PreparedStatement pstm = connection.prepareStatement(sql)) {
+				pstm.setBoolean(1, false);
+				pstm.setInt(2, bicicleta.getId());
+				pstm.execute();
+			}
+			funcionou = true;
+		}catch(SQLException e) {
+			System.out.println(e);
+		} 
+		return funcionou;
+	}
+	
+	private boolean fazerLocacao(Connection connection, Locacao locacao) throws SQLException {
+		boolean funcionou = false;
+		
 		String sql = "INSERT INTO LOCACAO(hora_da_locacao, devolucao, id_cliente, id_situacao, id_bicicleta)"
 				+ " VALUES(?, ?, ?, ?, ?)";
-		try (Connection connection = new ConnectionFactory().recuperarConexao()) {
+		try {
 			try (PreparedStatement pstm = connection.prepareStatement(sql)) {
 				pstm.setDate(1, new java.sql.Date(locacao.getHoraDaLocacao().getHour()));
 				pstm.setDate(2, new java.sql.Date(locacao.getDevolucacao().getHour()));
@@ -28,9 +65,11 @@ public class LocacaoDAO {
 				pstm.setInt(5, locacao.getBicicleta().getId());
 				pstm.execute();
 			}
+			funcionou = true;
 		} catch (SQLException e) {
 			System.out.println(e);
 		}
+		return funcionou;
 	}
 
 	public List<Locacao> historicoGeralDeLocacao() throws SQLException {
