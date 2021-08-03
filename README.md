@@ -1,6 +1,6 @@
 # SISTEMA DE LOCAÇÃO DE BICICLETAS
 
-<p align="center">Sistema legado de locação de bicicletas feito em Java 🚀</p>
+<p align="center">Sistema legado de locação de bicicletas desenvolvido em Java 🚀</p>
 
 <div align="center">
 
