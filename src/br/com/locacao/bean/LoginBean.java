@@ -23,7 +23,7 @@ public class LoginBean {
 	public RedirectView efetueLogin() throws SQLException {
 		System.out.println("fazendo login do usuário: "+ this.usuario.getEmail());
 		FacesContext context = FacesContext.getCurrentInstance();
-		boolean existe = new UsuarioDAO().existe(this.usuario);
+		boolean existe = new UsuarioDAO().usuarioExiste(this.usuario);
 		if(existe) {
 			context.getExternalContext().getSessionMap().put("usuarioLogado", this.usuario);
 			return new RedirectView("bicicletas");
