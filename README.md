@@ -9,7 +9,7 @@
 </div>
 
 ## Projeto
-Projeto desenvolvido com JSF + JDBC + PRIMEFACES;
+Projeto desenvolvido com JAVA + JDBC + JSF + PRIMEFACES;
 
 Padrão arquitetural baseado em **MVC**
 	
