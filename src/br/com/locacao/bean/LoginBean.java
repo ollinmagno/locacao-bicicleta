@@ -29,10 +29,13 @@ public class LoginBean {
 			return new RedirectView("bicicletas");
 		}
 		context.getExternalContext().getFlash().setKeepMessages(true);
-		context.addMessage(null, new FacesMessage("Usuário não encontrado"));
+		error();
 		return new RedirectView("login");
 	}
-	
+	private void error() {
+		FacesContext.getCurrentInstance().addMessage(null,
+				new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro!", "Usuário ou senha incorreto. Confira-a."));
+	}
 	public RedirectView deslogar() {
 		FacesContext context = FacesContext.getCurrentInstance();
 		context.getExternalContext().getSessionMap().remove("usuarioLogado");
