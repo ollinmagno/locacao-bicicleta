@@ -4,7 +4,7 @@
 
 <div align="center">
 
-![apachetomcat](https://img.shields.io/badge/-apache%20tomcat%20v7.0-yellowgreen)
+![apachetomcat](https://img.shields.io/badge/-apache%20tomcat%20v8.0-yellowgreen)
 ![jdk](https://img.shields.io/badge/-JDK%201.8-green)
 </div>
 
