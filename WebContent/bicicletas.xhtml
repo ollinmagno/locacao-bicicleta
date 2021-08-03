@@ -1,43 +1,87 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:p="http://primefaces.org/ui"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
-	<ui:composition template="_template.xhtml">
+<ui:composition template="_template.xhtml">
 
-		<ui:define name="titulo">
+	<ui:define name="titulo">
 				Bicicletas
 		</ui:define>
 
-		<ui:define name="conteudo">
-			<h:form id="formTabelaBicicletas">
-				<h:dataTable value="#{bicicletaBean.bicicletas}" var="bicicleta" id="tabelaBicicletas">
-					<h:column>
-						<f:facet name="header">Aro</f:facet>
-						<h:outputText value="#{bicicleta.aro}" />
-					</h:column>
-					<h:column>
-						<f:facet name="header">Cor</f:facet>
-						<h:outputText value="#{bicicleta.cor}" />
-					</h:column>
-					<h:column>
-						<f:facet name="header">Marchas</f:facet>
-						<h:outputText value="#{bicicleta.marchas}"/>
-					</h:column>
-					<h:column>
-						<f:facet name="header">Modelo</f:facet>
-						<h:outputText value="#{bicicleta.modelo.marca}"/>
-					</h:column>
-					<h:column>
-						<f:facet name="header">Preço por hora</f:facet>
-						<h:outputText value="R$#{bicicleta.modelo.precoPorHora}"/>
-					</h:column>
-				</h:dataTable>
-			</h:form>
-		</ui:define>
-	</ui:composition>
+	<ui:define name="conteudo">
+	<h:head>
+		<style type="text/css">
+			.value {
+				font-weight: bold;
+				font-size: 14px;
+				
+			}
+		</style>
+		</h:head>
+		<h:form id="formTabelaBicicletas">
+
+			<p:carousel value="#{bicicletaBean.bicicletas}" circular="true"
+				headerText="Lista de bicicletas" var="bicicleta"
+				itemStyle="" responsive="true">
+				<p:panelGrid columns="2" style="width:100%;margin:10px 10px"
+					columnClasses="label,value" layout="grid"
+					styleClass="ui-panelgrid-blank">
+					<f:facet name="header">
+						<p:graphicImage name="logo.png" />
+					</f:facet>
+					<h:outputText value="Aro" />
+					<h:outputText value="#{bicicleta.aro}" />
+
+					<h:outputText value="Marchas" />
+					<h:outputText value="#{bicicleta.marchas}" />
+
+					<h:outputText value="cor" />
+					<h:outputText value="#{bicicleta.cor}" />
+
+					<h:outputText value="Modelo" />
+					<h:outputText value="#{bicicleta.modelo.marca}" />
+
+					<h:outputText value="Preço por hora" />
+					<h:outputText value="#{bicicleta.modelo.precoPorHora}" />
+
+				</p:panelGrid>
+
+				<f:facet name="footer">
+                	No total, existem #{fn:length(bicicletaBean.bicicletas)} bicicletas.
+        		</f:facet>
+			</p:carousel>
+
+
+			<h:dataTable value="#{bicicletaBean.bicicletas}" var="bicicleta"
+				id="tabelaBicicletas">
+				<h:column>
+					<f:facet name="header">Aro</f:facet>
+					<h:outputText value="#{bicicleta.aro}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Cor</f:facet>
+					<h:outputText value="#{bicicleta.cor}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Marchas</f:facet>
+					<h:outputText value="#{bicicleta.marchas}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Modelo</f:facet>
+					<h:outputText value="#{bicicleta.modelo.marca}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Preço por hora</f:facet>
+					<h:outputText value="R$#{bicicleta.modelo.precoPorHora}" />
+				</h:column>
+			</h:dataTable>
+		</h:form>
+	</ui:define>
+</ui:composition>
 
 </html>
