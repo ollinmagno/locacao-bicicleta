@@ -8,7 +8,9 @@
 
 <ui:composition template="_template.xhtml">
 	<ui:define name="conteudo">
-		<h:messages globalOnly="true" />
+		<p:messages id="messages" showDetail="true" closable="true">
+			<p:autoUpdate />
+		</p:messages>
 		<h:form id="login">
 			<div align="center">
 				<p:fieldset style="width:300px;">
@@ -23,9 +25,10 @@
 						<p:message for="email" id="messageEmail" />
 						<p:outputLabel value="Senha:" for="senha" />
 						<p:password id="senha" value="#{loginBean.usuario.senha}"
-							feedback="true" required="true" />
+							feedback="true" />
 						<p:message for="senha" id="messageSenha" />
-						<p:commandButton value="Entrar" action="#{loginBean.efetueLogin}" />
+						<p:commandButton value="Entrar" action="#{loginBean.efetueLogin}"
+							style="margin-right:20px;" styleClass="ui-priority-primary" />
 					</h:panelGrid>
 				</p:fieldset>
 			</div>
