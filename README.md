@@ -25,7 +25,7 @@ O padrão arquitetural adotado neste projeto é o **MVC (Model-View-Controller)*
 
 * [validation-api-1.0.0.GA](https://mvnrepository.com/artifact/javax.validation/validation-api/1.0.0.GA)
 
-* [primefaces-5.3](https://mvnrepository.com/artifact/org.primefaces/primefaces/5.3)
+* [primefaces-8.0](https://mvnrepository.com/artifact/org.primefaces/primefaces/8.0)
 
 * [dom4j-1.6.1](https://mvnrepository.com/artifact/dom4j/dom4j/1.6.1)
 
