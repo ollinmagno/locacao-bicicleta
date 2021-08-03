@@ -1,3 +1,13 @@
 button.ui-button {
         margin-right: .5rem;
 }
+
+
+
+.value {
+	font-weight: bold;
+}
+
+.ui-carousel {
+	margin-bottom: 20px;
+}
