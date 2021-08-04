@@ -7,11 +7,10 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
 <ui:composition template="_template.xhtml">
-	<h:head>
-		<link rel="stylesheet" href="#{facesContext.externalContext.requestContextPath}/resources/css/login.css" />
-		<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Ubuntu" />
-	</h:head>
 	<ui:define name="conteudo">
+	<h:head>
+		<link rel="stylesheet" href="#{facesContext.externalContext.requestContextPath}/resources/css/geral.css" />
+	</h:head>
 		<p:messages id="messages" showDetail="true" closable="true">
 			<p:autoUpdate />
 		</p:messages>

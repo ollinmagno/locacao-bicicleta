@@ -7,33 +7,34 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 
 	<ui:composition template="_template.xhtml">
-
-		<ui:define name="titulo">
-				Histórico de locações
-		</ui:define>
-
-		<ui:define name="conteudo">
+	<ui:define name="conteudo">
+	<h:head>
+		<link rel="stylesheet" href="#{facesContext.externalContext.requestContextPath}/resources/css/bicicletas.css" />
+		<link rel="stylesheet" href="#{facesContext.externalContext.requestContextPath}/resources/css/geral.css" />
+	</h:head>
+	
+		
 			<h:form id="formTabelaLocacoes">
-				<h:dataTable value="#{locacaoBean.locacoes}" var="locacao" id="tabelaLocacoes">
-					<h:column>
+				<p:dataTable value="#{locacaoBean.locacoes}" var="locacao" id="tabelaLocacoes">
+					<p:column>
 						<f:facet name="header">Horário da locação</f:facet>
 						<h:outputText value="#{locacao.horaDaLocacao}" />
-					</h:column>
-					<h:column>
+					</p:column>
+					<p:column>
 						<f:facet name="header">Horário de devolução</f:facet>
 						<h:outputText value="#{locacao.devolucacao}" />
-					</h:column>
-					<h:column>
+					</p:column>
+					<p:column>
 						<f:facet name="header">Cliente</f:facet>
 						<h:outputText value="#{locacao.cliente.nome}, "/>
 						<h:outputText value="#{locacao.cliente.cpf}, "/>
 						<h:outputText value="#{locacao.cliente.email}"/>
-					</h:column>
-					<h:column>
+					</p:column>
+					<p:column>
 						<f:facet name="header">Situação</f:facet>
 						<h:outputText value="#{locacao.situacao.status}" />
-					</h:column>
-				</h:dataTable>
+					</p:column>
+				</p:dataTable>
 			</h:form>
 		</ui:define>
 	</ui:composition>

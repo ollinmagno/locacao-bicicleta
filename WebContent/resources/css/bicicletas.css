@@ -1,27 +1,35 @@
-body {
-	font-family: Ubuntu;
-}
-button.ui-button {
-        margin-right: .5rem;
-}
 .value {
 	font-weight: bold;
 	font-size: 14px;
 }
-
-.ui-carousel .ui-carousel-header .ui-carousel-header-title {
-    display: inline-block;
-    width: 30%;
-    padding-top: 2px;
-    overflow: hidden;
-    font-style: 
-}
-.ui-carousel .ui-carousel-header {
-    margin: 0 1px;
-    overflow: hidden;
-    padding-top: 7px;
-    padding-bottom: 8px;
-    padding-right: 10px;
-    padding-left: 10px;
-    background-color: #FFA500;
-}
+.box,
+    .sample-layout > div {
+        background-color: #cce4f7;
+        text-align: center;
+        padding-top: 1em;
+        padding-bottom: 1em;
+        border-radius: 4px;
+    }
+ 
+    .box-stretched {
+        height: 100%;
+    }
+ 
+    .sample-layout {
+        margin: 0;
+    }
+ 
+    .sample-layout > div {
+        border: 1px solid #ffffff;
+    }
+ 
+    .vertical-container {
+        margin: 0;
+        height: 200px;
+        background: #efefef;
+        border-radius: 4px;
+    }
+ 
+    .nested-grid .p-col-4 {
+        padding-bottom: 1em;
+    }
