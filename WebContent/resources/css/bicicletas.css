@@ -1,0 +1,27 @@
+body {
+	font-family: Ubuntu;
+}
+button.ui-button {
+        margin-right: .5rem;
+}
+.value {
+	font-weight: bold;
+	font-size: 14px;
+}
+
+.ui-carousel .ui-carousel-header .ui-carousel-header-title {
+    display: inline-block;
+    width: 30%;
+    padding-top: 2px;
+    overflow: hidden;
+    font-style: 
+}
+.ui-carousel .ui-carousel-header {
+    margin: 0 1px;
+    overflow: hidden;
+    padding-top: 7px;
+    padding-bottom: 8px;
+    padding-right: 10px;
+    padding-left: 10px;
+    background-color: #FFA500;
+}
