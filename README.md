@@ -1,12 +1,14 @@
 # SISTEMA DE LOCAÇÃO DE BICICLETAS
 
-<p align="center">Sistema legado de locação de bicicletas desenvolvido em Java 🚀</p>
+## Sistema legado de locação de bicicletas desenvolvido em Java 🚀
 
-<div align="center">
 
-![apachetomcat](https://img.shields.io/badge/-apache%20tomcat%20v8.0-yellowgreen)
+
 ![jdk](https://img.shields.io/badge/-JDK%201.8-green)
-</div>
+![jsf2.2](https://img.shields.io/badge/-JSF%202.2-green)
+![primefaces-v8.0](https://img.shields.io/badge/-PRIMEFACES%208.0-blue)
+![apachetomcat](https://img.shields.io/badge/-apache%20tomcat%20v8.0-yellowgreen)
+
 
 ## Projeto
 * Projeto desenvolvido com JAVA + JDBC + JSF + PRIMEFACES;
