@@ -60,8 +60,27 @@
 		<ui:insert name="titulo"></ui:insert>
 	</h1>
 </div>
+	
 <div id="conteudo">
 	<ui:insert name="conteudo">
 	</ui:insert>
 </div>
+		
+		<br></br>
+		<div class="p-col-12">
+				<p:fieldset toggleable="true" toggleSpeed="500" style="text-align:center">
+					<h:panelGrid columns="3" cellpadding="4">
+						<h:outputText
+							value="Sede: Av. Fernandes Lima - Farol, Maceió - AL, 57050-000 |"></h:outputText>
+						<h:outputText
+							value="Assistência a Clientes 24h: 0800 000 0000 |"></h:outputText>
+						<h:outputText
+							value="Termos e condições de uso"></h:outputText>
+					</h:panelGrid>
+					<br></br>
+   					<h:panelGroup style="display:block; text-align:center">
+           				© Copyright 2021 - LocacaoBike - Todos direitos reservados
+   					</h:panelGroup>
+				</p:fieldset>
+			</div>
 </html>
