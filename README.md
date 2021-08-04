@@ -21,6 +21,8 @@ O padrão arquitetural adotado neste projeto é o **MVC (Model-View-Controller)*
 ### Como usar
 	
 ### Bibliotecas
+* [all-themes-1.0.10](https://mvnrepository.com/artifact/org.primefaces.themes/all-themes/1.0.10)
+
 * [mysql-connector-java-8.0.17](https://mvnrepository.com/artifact/mysql/mysql-connector-java/8.0.17)
 
 * [validation-api-1.0.0.GA](https://mvnrepository.com/artifact/javax.validation/validation-api/1.0.0.GA)
