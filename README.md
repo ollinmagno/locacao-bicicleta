@@ -10,8 +10,6 @@
 
 ## Projeto
 Projeto desenvolvido com JAVA + JDBC + JSF + PRIMEFACES;
-
-Padrão arquitetural baseado em **MVC**
 	
 ## Arquitetura do projeto
 O padrão arquitetural adotado neste projeto é o **MVC (Model-View-Controller)**. 
