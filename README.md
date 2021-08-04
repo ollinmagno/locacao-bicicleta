@@ -22,6 +22,7 @@ O padrão arquitetural adotado neste projeto é o **MVC (Model-View-Controller)*
 
 ### Banco de dados
 O projeto foi configurado para trabalhar com o banco de dados **MySQL**. Utilize este arquivo para criar as tabelas e inserir os dados.
+
 [locacao.sql](https://gist.github.com/ollinmagno/aa539516f97a839bcd4dbe0b46363f83)
 
 *Atenção: A classe [ConnectionFactory](https://github.com/ollinmagno/locacao-bicicleta/blob/master/src/br/com/locacao/dao/ConnectionFactory.java) deve ser alterada conforme suas configurações.*
