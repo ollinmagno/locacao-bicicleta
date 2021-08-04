@@ -7,6 +7,10 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
 <ui:composition template="_template.xhtml">
+	<h:head>
+		<link rel="stylesheet" href="#{facesContext.externalContext.requestContextPath}/resources/css/login.css" />
+		<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Ubuntu" />
+	</h:head>
 	<ui:define name="conteudo">
 		<p:messages id="messages" showDetail="true" closable="true">
 			<p:autoUpdate />
@@ -15,6 +19,9 @@
 			<div align="center">
 				<p:fieldset style="width:300px;">
 					<h:panelGrid columns="1">
+							<div align="center">
+      							<h:graphicImage library="img" name="logo.png" width="250" />
+      						</div>
 						<p:outputLabel value="Email:" for="email" />
 						<p:inputText id="email" value="#{loginBean.usuario.email}"
 							validatorMessage="Digite o email corretamente">
@@ -28,7 +35,7 @@
 							feedback="true" />
 						<p:message for="senha" id="messageSenha" />
 						<p:commandButton value="Entrar" action="#{loginBean.efetueLogin}"
-							style="margin-right:20px;" styleClass="ui-priority-primary" />
+							style="margin-right:20px;" styleClass="ui-button-outlined" />
 					</h:panelGrid>
 				</p:fieldset>
 			</div>

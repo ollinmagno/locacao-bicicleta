@@ -9,26 +9,17 @@
 
 <ui:composition template="_template.xhtml">
 
-	<ui:define name="titulo">
-				Bicicletas
-		</ui:define>
-
 	<ui:define name="conteudo">
 	<h:head>
-		<style type="text/css">
-			.value {
-				font-weight: bold;
-				font-size: 14px;
-				
-			}
-		</style>
-		</h:head>
+		<link rel="stylesheet" href="#{facesContext.externalContext.requestContextPath}/resources/css/bicicletas.css" />
+		<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Ubuntu" />
+	</h:head>
 		<h:form id="formTabelaBicicletas">
 
 			<p:carousel value="#{bicicletaBean.bicicletas}" circular="true"
-				headerText="Lista de bicicletas" var="bicicleta"
+				headerText="BICICLETAS" var="bicicleta"
 				itemStyle="" responsive="true">
-				<p:panelGrid columns="2" style="width:100%;margin:10px 10px"
+				<p:panelGrid columns="2" style="width:80%;margin:10px 10px"
 					columnClasses="label,value" layout="grid"
 					styleClass="ui-panelgrid-blank">
 					<f:facet name="header">
@@ -48,38 +39,14 @@
 
 					<h:outputText value="Preço por hora" />
 					<h:outputText value="#{bicicleta.modelo.precoPorHora}" />
-
+					
+					
 				</p:panelGrid>
 
 				<f:facet name="footer">
                 	No total, existem #{fn:length(bicicletaBean.bicicletas)} bicicletas.
         		</f:facet>
 			</p:carousel>
-
-
-			<h:dataTable value="#{bicicletaBean.bicicletas}" var="bicicleta"
-				id="tabelaBicicletas">
-				<h:column>
-					<f:facet name="header">Aro</f:facet>
-					<h:outputText value="#{bicicleta.aro}" />
-				</h:column>
-				<h:column>
-					<f:facet name="header">Cor</f:facet>
-					<h:outputText value="#{bicicleta.cor}" />
-				</h:column>
-				<h:column>
-					<f:facet name="header">Marchas</f:facet>
-					<h:outputText value="#{bicicleta.marchas}" />
-				</h:column>
-				<h:column>
-					<f:facet name="header">Modelo</f:facet>
-					<h:outputText value="#{bicicleta.modelo.marca}" />
-				</h:column>
-				<h:column>
-					<f:facet name="header">Preço por hora</f:facet>
-					<h:outputText value="R$#{bicicleta.modelo.precoPorHora}" />
-				</h:column>
-			</h:dataTable>
 		</h:form>
 	</ui:define>
 </ui:composition>
