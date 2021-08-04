@@ -9,17 +9,17 @@
 </div>
 
 ## Projeto
-Projeto desenvolvido com JAVA + JDBC + JSF + PRIMEFACES;
+* Projeto desenvolvido com JAVA + JDBC + JSF + PRIMEFACES;
 	
 ## Arquitetura do projeto
 O padrão arquitetural adotado neste projeto é o **MVC (Model-View-Controller)**. 
 
 ### Requisitos de instalação
-JDK - versão 1.8 do Java
-Tomcat 8.0
+* JDK - versão 1.8 do Java
+* Tomcat 8.0
 
 ### Banco de dados
-O projeto foi configurado para trabalhar com o banco de dados MySQL. Utilize este arquivo para criar as tabelas e inserir os dados.
+O projeto foi configurado para trabalhar com o banco de dados **MySQL**. Utilize este arquivo para criar as tabelas e inserir os dados.
 [locacao.sql](https://gist.github.com/ollinmagno/aa539516f97a839bcd4dbe0b46363f83)
 
 ### Como usar
