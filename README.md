@@ -29,7 +29,8 @@ O projeto foi configurado para trabalhar com o banco de dados **MySQL**. Utilize
 
 
 ### Como usar
-	
+	http://localhost:8080/locacao-bicicleta/login.xhtml
+
 ### Bibliotecas
 * [all-themes-1.0.10](https://mvnrepository.com/artifact/org.primefaces.themes/all-themes/1.0.10)
 
