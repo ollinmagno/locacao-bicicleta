@@ -4,49 +4,19 @@
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:p="http://primefaces.org/ui"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
-	<ui:composition template="_template.xhtml">
-	
-		<ui:define name="titulo">
-				Cadastrar bicicleta
-		</ui:define>
-
+<ui:composition template="_template.xhtml">
 		<ui:define name="conteudo">
+		<h:head>
+			<link rel="stylesheet" href="#{facesContext.externalContext.requestContextPath}/resources/css/geral.css" />
+		</h:head>
+		
 			<h:form>
 
-				<h:messages id="messages" />
-
-				<fieldset>
-					<legend>Cadastro</legend>
-					<h:panelGrid columns="2">
-
-						<h:outputLabel value="Aro:" for="aro" />
-						<h:inputText id="aro" value="#{bicicletaBean.bicicleta.aro}"
-							required="true">
-						</h:inputText>
-						<h:outputLabel value="Cor:" for="cor" />
-						<h:inputText id="cor" value="#{bicicletaBean.bicicleta.cor}"/>
-						<h:outputLabel value="Marchas:" for="marchas" />
-						<h:inputText id="marchas" value="#{bicicletaBean.bicicleta.marchas}" />
-					</h:panelGrid>
-
-				</fieldset>
-				<br/>
-				<fieldset>
-					<legend>Cliente</legend>
-					<h:outputLabel value="Selecione cpf do cliente:" for="cliente" />
-						<h:inputText id="cliente" value="#{usuarioBean.usuario.cpf}"/>
-					<h:commandButton value="Gravar cpf"
-						action="#{livroBean.gravarAutor}">
-						<f:ajax execute="autor" render="tabelaAutores" />
-					</h:commandButton>
-					<br />
-				</fieldset>
-				<br/>
-				<h:commandButton value="Gravar" action="#{livroBean.gravar}"/>
+				
 			</h:form>
 		</ui:define>
 	</ui:composition>
-
 </html>
