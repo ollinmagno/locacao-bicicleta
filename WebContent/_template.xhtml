@@ -47,10 +47,12 @@
 
 			<f:facet name="options">
 				<p:inputText style="margin:1px 10px 1px 1px;" placeholder="Buscar..." />
-				<p:commandButton type="button" value="Sair" icon="pi pi-home" action="#{loginBean.deslogar}"/>
+				<p:commandButton type="button" value="Sair" icon="pi pi-home" 
+				action="#{loginBean.deslogar}"/>
 			</f:facet>
 		</p:menubar>
 	</h:form>
+	
 	<h1>
 		<ui:insert name="titulo"></ui:insert>
 	</h1>
@@ -61,6 +63,7 @@
 	</ui:insert>
 </div>
 		
+		<h:form rendered="#{usuarioLogado != null}">
 		<br></br>
 		<div class="p-col-12">
 				<p:fieldset toggleable="true" toggleSpeed="500" style="text-align:center">
@@ -78,4 +81,5 @@
    					</h:panelGroup>
 				</p:fieldset>
 			</div>
+			</h:form>
 </html>
