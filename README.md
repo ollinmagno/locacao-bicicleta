@@ -1,24 +1,22 @@
-# SISTEMA DE LOCAÇÃO DE BICICLETAS
-
 ## Sistema legado de locação de bicicletas desenvolvido em Java 🚀
-
-
 
 ![jdk](https://img.shields.io/badge/-JDK%201.8-green)
 ![jsf2.2](https://img.shields.io/badge/-JSF%202.2-green)
 ![primefaces-v8.0](https://img.shields.io/badge/-PRIMEFACES%208.0-blue)
 ![apachetomcat](https://img.shields.io/badge/-apache%20tomcat%20v8.0-yellowgreen)
 
+<br>
 
-## Projeto
-* Projeto desenvolvido com JAVA + JDBC + JSF + PRIMEFACES;
-	
-## Arquitetura do projeto
+### Projeto
+Projeto desenvolvido com JAVA + JDBC + JSF + PRIMEFACES;
+
+### Arquitetura do projeto
 O padrão arquitetural adotado neste projeto é o **MVC (Model-View-Controller)**. 
 
 ### Requisitos de instalação
 * JDK - versão 1.8 do Java
 * Tomcat 8.0
+* Mysql 8.0
 
 ### Banco de dados
 O projeto foi configurado para trabalhar com o banco de dados **MySQL**. Utilize este arquivo para criar as tabelas e inserir os dados.
@@ -29,9 +27,15 @@ O projeto foi configurado para trabalhar com o banco de dados **MySQL**. Utilize
 
 
 ### Como usar
+[Faça o download do projeto](https://github.com/ollinmagno/locacao-bicicleta/archive/refs/heads/master.zip) e importe na IDE de sua preferência;
+
+Configure o projeto no apache Tomcat 8.0;
+
+Acesso o endereço:
+
 	http://localhost:8080/locacao-bicicleta/login.xhtml
 
-### Bibliotecas
+### Bibliotecas utilizadas no projeto, link de referência 
 * [all-themes-1.0.10](https://mvnrepository.com/artifact/org.primefaces.themes/all-themes/1.0.10)
 
 * [mysql-connector-java-8.0.17](https://mvnrepository.com/artifact/mysql/mysql-connector-java/8.0.17)
