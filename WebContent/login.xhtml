@@ -15,12 +15,10 @@
 			<p:autoUpdate />
 		</p:messages>
 		<h:form id="login">
+			<div style="height:80px"></div>
 			<div align="center">
 				<p:fieldset style="width:300px;">
 					<h:panelGrid columns="1">
-							<div align="center">
-      							<h:graphicImage library="img" name="logo.png" width="250" />
-      						</div>
 						<p:outputLabel value="Email:" for="email" />
 						<p:inputText id="email" value="#{loginBean.usuario.email}"
 							validatorMessage="Digite o email corretamente">
@@ -33,8 +31,9 @@
 						<p:password id="senha" value="#{loginBean.usuario.senha}"
 							feedback="true" />
 						<p:message for="senha" id="messageSenha" />
+						<div style="height:10px"></div>
 						<p:commandButton value="Entrar" action="#{loginBean.efetueLogin}"
-							style="margin-right:20px;" styleClass="ui-button-outlined" />
+							style="width:207px; height:33px;" styleClass="ui-button-outlined" />
 					</h:panelGrid>
 				</p:fieldset>
 			</div>
