@@ -7,9 +7,10 @@
 	<h:head>
 		<style>src="/resources/css/style.css" </style>
 	</h:head>
-	
+<h:body>	
 <h:form rendered="#{usuarioLogado != null}">
 	<div id="cabecalho">
+		<ui:insert name="header" >
 		<p:growl id="messages" />
 		<p:menubar>
 			<p:submenu label="Bicicletas" icon="pi pi-file">
@@ -55,6 +56,7 @@
 					action="#{loginBean.deslogar}"/>
 			</f:facet>
 		</p:menubar>
+		</ui:insert>
 	</div>
 </h:form>
 <div style="height:30px"></div>
@@ -68,7 +70,8 @@
 
 <div style="height:30px"></div>
 
-	<div class="footer">
+	<div id="footer">
+		<ui:insert name="footer" >
 		<h:form rendered="#{usuarioLogado != null}">
 			<br></br>
 			<div class="p-col-12">
@@ -87,5 +90,7 @@
 				</p:fieldset>
 			</div>
 		</h:form>
+		</ui:insert>
 	</div>
+</h:body>
 </html>
