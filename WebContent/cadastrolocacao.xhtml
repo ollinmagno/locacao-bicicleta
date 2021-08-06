@@ -10,11 +10,28 @@
 <ui:composition template="_template.xhtml">
 		<ui:define name="conteudo">
 		<h:head>
-			<link rel="stylesheet" href="#{facesContext.externalContext.requestContextPath}/resources/css/geral.css" />
+			<link rel="stylesheet" href="#{facesContext.externalContext.requestContextPath}/resources/css/style.css" />
 		</h:head>
 		
 			<h:form>
-
+				<p:panel id="basic" header="LOCAÇÃO" style="margin-bottom:20px">
+			        <h:panelGrid columns="1" cellpadding="3" cellspacing="5">	
+        				<p:outputLabel for="button" value="Data de retirada: " />
+        				<p:datePicker id="button" value="#{calendarView.date7}" showIcon="true" />
+        				
+        				<p:outputLabel for="button" value="Data de devolução: " />
+        				<p:datePicker id="button2" value="#{calendarView.date7}" showIcon="true" />
+        				
+        				<span class="ui-float-label">
+					       <p:outputLabel for="@previous"  value="CPF do cliente: " />
+					       <p:inputMask id="cpf" value="#{basicView.text}" mask="999.999.999-99"
+					       maxlength="11"
+					       requiredMessage="Informe o cpf do cliente."/>
+					   </span>
+					   <p:commandButton value="Confirmar" id="buttonForm"
+					   action="#{buttonView.buttonAction}" style="margin-right:20px;" styleClass="ui-priority-primary" />
+			        </h:panelGrid>
+    		</p:panel>
 				
 			</h:form>
 		</ui:define>
