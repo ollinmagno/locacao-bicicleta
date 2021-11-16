@@ -19,7 +19,7 @@ public class ConnectionFactory {
 		ComboPooledDataSource comboPooledDataSource = new ComboPooledDataSource();
 		comboPooledDataSource.setJdbcUrl("jdbc:mysql://localhost/locacao_bicicleta?useTimezone=true&serverTimezone=UTC");
 		comboPooledDataSource.setUser("root");
-		comboPooledDataSource.setPassword("admin");
+		comboPooledDataSource.setPassword("Admin123#");
 		this.dataSource = comboPooledDataSource;
 	}
 	

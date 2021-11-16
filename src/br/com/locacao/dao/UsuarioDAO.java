@@ -9,7 +9,7 @@ import br.com.locacao.modelo.Cliente;
 public class UsuarioDAO {
 
 	public boolean usuarioExiste(Cliente cliente) throws SQLException {
-		String sql = "SELECT EMAIL, SENHA FROM CLIENTE";
+		String sql = "select email, senha from cliente";
 		boolean autenticaUsuario = false;
 		try (Connection connection = new ConnectionFactory().recuperarConexao()) {
 			try (PreparedStatement pstm = connection.prepareStatement(sql)) {

@@ -13,7 +13,7 @@ import br.com.locacao.modelo.Modelo;
 public class BicicletaDAO {
 
 	public void adicionaBicicleta(Bicicleta bicicleta) throws SQLException {
-		String sql = "INSERT INTO bicicleta(ARO, COR, MARCHAS, ID_FK_MODELO) VALUES(?,?,?,?);";
+		String sql = "insert into bicicleta(aro, cor, marchas, id_fk_modelo) values(?,?,?,?);";
 		try (Connection connection = new ConnectionFactory().recuperarConexao()) {
 			try (PreparedStatement pstm = connection.prepareStatement(sql)) {
 				pstm.setInt(1, bicicleta.getAro());
@@ -30,8 +30,8 @@ public class BicicletaDAO {
 	public List<Bicicleta> listaBicicletas() throws SQLException {
 		List<Bicicleta> bicicletas = new ArrayList<Bicicleta>();
 
-		String sql = "SELECT BICICLETA.ID, ARO, COR, MARCHAS,\r\n"
-				+ "MARCA, PRECO_POR_HORA FROM BICICLETA JOIN MODELO ON BICICLETA.ID_FK_MODELO = MODELO.ID;";
+		String sql = "select bicicleta.id, aro, cor, marchas,\r\n"
+				+ "marca, preco_por_hora from bicicleta join modelo on bicicleta.id_fk_modelo = modelo.id;";
 		try (Connection connection = new ConnectionFactory().recuperarConexao()) {
 			try (PreparedStatement pstm = connection.prepareStatement(sql)) {
 				try (ResultSet resultset = pstm.executeQuery()) {
@@ -56,8 +56,8 @@ public class BicicletaDAO {
 
 	public Bicicleta buscarBicicleta(int id) {
 		Bicicleta bicicleta = new Bicicleta(new Modelo());
-		String sql = "SELECT BICICLETA.ID, ARO, COR, MARCHAS, MARCA, PRECO_POR_HORA FROM BICICLETA"
-				+ " JOIN MODELO ON BICICLETA.ID_FK_MODELO = MODELO.ID WHERE BICICLETA.ID = ?";
+		String sql = "select bicicleta.id, aro, cor, marchas, marca, preco_por_hora from bicicleta"
+				+ " join modelo on bicicleta.id_fk_modelo = modelo.id where bicicleta.id = ?";
 
 		try (Connection connection = new ConnectionFactory().recuperarConexao()) {
 			try (PreparedStatement pstm = connection.prepareStatement(sql)) {

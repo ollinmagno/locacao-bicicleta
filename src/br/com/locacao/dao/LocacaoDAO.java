@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,7 +35,7 @@ public class LocacaoDAO {
 	
 	private boolean setarBicicletaComoIndisponivel(Connection connection, Bicicleta bicicleta) {
 		boolean funcionou = false;
-		String sql = "UPDATE BICICLETA SET DISPONIVEL = ? WHERE (ID = ?)";
+		String sql = "update bicicleta set disponivel = ? where (id = ?)";
 		
 		try {
 			try(PreparedStatement pstm = connection.prepareStatement(sql)) {
@@ -54,8 +53,8 @@ public class LocacaoDAO {
 	private boolean fazerLocacao(Connection connection, Locacao locacao) throws SQLException {
 		boolean funcionou = false;
 		
-		String sql = "INSERT INTO LOCACAO(hora_da_locacao, devolucao, id_cliente, id_situacao, id_bicicleta)"
-				+ " VALUES(?, ?, ?, ?, ?)";
+		String sql = "insert into locacao(hora_da_locacao, devolucao, id_cliente, id_situacao, id_bicicleta)"
+				+ " values(?, ?, ?, ?, ?)";
 		try {
 			try (PreparedStatement pstm = connection.prepareStatement(sql)) {
 				pstm.setDate(1, new java.sql.Date(locacao.getHoraDaLocacao().getHour()));
@@ -75,12 +74,12 @@ public class LocacaoDAO {
 	public List<Locacao> historicoGeralDeLocacao() throws SQLException {
 		List<Locacao> historicoDeLocacoes = new ArrayList<Locacao>();
 
-		String sql = "SELECT HORA_DA_LOCACAO, DEVOLUCAO, NOME, CPF, STATUS, BICICLETA.ID,\r\n" + 
-				"BICICLETA.ARO, BICICLETA.COR, BICICLETA.MARCHAS,\r\n" + 
-				"MODELO.MARCA, MODELO.PRECO_POR_HORA\r\n" + 
-				"FROM LOCACAO JOIN CLIENTE ON ID_CLIENTE = CLIENTE.ID JOIN SITUACAO ON\r\n" + 
-				"ID_SITUACAO = SITUACAO.ID JOIN BICICLETA ON ID_BICICLETA = BICICLETA.ID\r\n" + 
-				"JOIN MODELO ON ID_BICICLETA = MODELO.ID";
+		String sql = "select hora_da_locacao, devolucao, nome, cpf, status, bicicleta.id,\r\n" + 
+				"bicicleta.aro, bicicleta.cor, bicicleta.marchas,\r\n" + 
+				"modelo.marca, modelo.preco_por_hora\r\n" + 
+				"from locacao join cliente on id_cliente = cliente.id join situacao on\r\n" + 
+				"id_situacao = situacao.id join bicicleta on id_bicicleta = bicicleta.id\r\n" + 
+				"join modelo on id_bicicleta = modelo.id";
 
 		try (Connection connection = new ConnectionFactory().recuperarConexao()) {
 			try (PreparedStatement pstm = connection.prepareStatement(sql)) {
@@ -112,9 +111,9 @@ public class LocacaoDAO {
 	public List<Locacao> verificarSituacaoDaLocacao(int situacao) throws SQLException {
 		List<Locacao> verificarLocacoesEmAtraso = new ArrayList<Locacao>();
 
-		String sql = "SELECT HORA_DA_LOCACAO, DEVOLUCAO, NOME, CPF, STATUS FROM "
-				+ "LOCACAO JOIN CLIENTE ON ID_CLIENTE = CLIENTE.ID JOIN SITUACAO "
-				+ "ON ID_SITUACAO = SITUACAO.ID WHERE ID_SITUACAO = ?";
+		String sql = "select hora_da_locacao, devolucao, nome, cpf, status from "
+				+ "Locacao join cliente on id_cliente = cliente.Id join situacao "
+				+ "On id_situacao = situacao.Id where id_situacao = ?";
 
 		try (Connection connection = new ConnectionFactory().recuperarConexao()) {
 			try (PreparedStatement pstm = connection.prepareStatement(sql)) {
