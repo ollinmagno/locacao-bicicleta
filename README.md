@@ -3,7 +3,7 @@
 ![jdk](https://img.shields.io/badge/-JDK%201.8-green)
 ![jsf2.2](https://img.shields.io/badge/-JSF%202.2-green)
 ![primefaces-v8.0](https://img.shields.io/badge/-PRIMEFACES%208.0-blue)
-![apachetomcat](https://img.shields.io/badge/-apache%20tomcat%20v8.0-yellowgreen)
+![apachetomcat](https://img.shields.io/badge/-apache%20tomcat%20v9.0-yellowgreen)
 
 <br>
 
@@ -15,7 +15,7 @@ O padrão arquitetural adotado neste projeto é o **MVC (Model-View-Controller)*
 
 ### Requisitos de instalação
 * JDK - versão 1.8 do Java
-* Tomcat 8.0
+* Tomcat 9.0
 * Mysql 8.0
 
 ### Banco de dados
@@ -29,7 +29,7 @@ O projeto foi configurado para trabalhar com o banco de dados **MySQL**. Utilize
 ### Como usar
 [Faça o download do projeto](https://github.com/ollinmagno/locacao-bicicleta/archive/refs/heads/master.zip) e importe na IDE de sua preferência;
 
-Configure o projeto no apache Tomcat 8.0;
+Configure o projeto no apache Tomcat 9.0;
 
 Acesso o endereço:
 
@@ -59,3 +59,21 @@ Acesso o endereço:
 * [javax.faces-2.2.13](https://mvnrepository.com/artifact/org.glassfish/javax.faces/2.2.13)
 
 * [javassist-3.15.0-GA](https://mvnrepository.com/artifact/org.javassist/javassist/3.15.0-GA)
+
+* [commons-beanutils-1.8.2.jar](https://mvnrepository.com/artifact/commons-beanutils/commons-beanutils/1.8.2)
+
+*[commons-collections-3.2.1.jar]
+
+*[commons-digester-2.1.jar]
+
+*[commons-javaflow-20060411.jar]
+
+*[commons-logging-1.1.jar]
+
+*[iText-2.1.7.js2.jar]
+
+*[jasperreports-5.6.0.jar]
+
+*[jdt-compiler-3.1.1.jar]
+
+*[jcommon-1.0.15.jar]
