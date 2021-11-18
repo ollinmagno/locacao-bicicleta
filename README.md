@@ -77,3 +77,6 @@ Acesso o endereço:
 * [jdt-compiler-3.1.1.jar](https://mvnrepository.com)
 
 * [jcommon-1.0.15.jar](https://mvnrepository.com)
+
+
+* [DOWNLOAD - BIBLIOTECAS](https://github.com/ollinmagno/libs/archive/refs/heads/main.zip)
