@@ -13,7 +13,7 @@
 		<ui:insert name="header" >
 		<p:growl id="messages" />
 		<p:menubar>
-			<p:submenu label="Bicicletas" icon="pi pi-file">
+			<p:submenu label="bicicletas" icon="pi pi-file">
 				<p:submenu label="New" icon="pi pi-briefcase">
 					<p:menuitem value="Project" url="#" />
 					<p:menuitem value="Other" url="#" />
@@ -22,8 +22,8 @@
 				<p:separator />
 				<p:menuitem value="Quit" url="#" />
 			</p:submenu>
-
-			<p:submenu label="Locações" icon="pi pi-question">
+			
+			<p:submenu label="locações" icon="pi pi-question">
 				<p:menuitem value="Contents" url="#" />
 				<p:submenu label="Search" icon="pi pi-search">
 					<p:submenu label="Text">
@@ -32,27 +32,29 @@
 					<p:menuitem value="File" url="#" />
 				</p:submenu>
 			</p:submenu>
-
-			<p:submenu label="Clientes" icon="pi pi-cog">
-				<p:submenu label="Ajax" icon="pi pi-refresh">
-					<p:menuitem value="Save" action="#{menuView.save}"
+			
+			<p:submenu label="relatórios" icon="pi pi-cog">
+				<p:menuitem value="lista de bicicletas" action="#{emitirRelatorioBean.emitirRelatorioAction()}" ajax="false" onclick="this.form.target='_blank'"/>
+				<p:menuitem value="lista de locações" url="#" />
+				<p:submenu label="teste" icon="pi pi-refresh">
+					<p:menuitem value="teste" action="#{menuView.save}"
 						icon="pi pi-save" update="messages" />
-					<p:menuitem value="Update" action="#{menuView.update}"
+					<p:menuitem value="teste" action="#{menuView.update}"
 						icon="pi pi-refresh" update="messages" />
 				</p:submenu>
-				<p:submenu label="Non-Ajax" icon="pi pi-clone">
-					<p:menuitem value="Delete" action="#{menuView.delete}"
+				<p:submenu label="teste" icon="pi pi-clone">
+					<p:menuitem value="teste" action="#{menuView.delete}"
 						icon="pi pi-times" update="messages" ajax="false" />
 				</p:submenu>
 			</p:submenu>
 
-			<p:menuitem value="Ajuda" url="http://www.primefaces.org"
+			<p:menuitem value="ajuda" url="http://www.primefaces.org"
 				icon="pi pi-times" />
 
 			<f:facet name="options">
 				<p:inputText style="margin:1px 10px 1px 1px;"
 					placeholder="Buscar..." />
-				<p:commandButton type="button" value="Sair" icon="pi pi-home"
+				<p:commandButton type="button" value="sair" icon="pi pi-home"
 					action="#{loginBean.deslogar}"/>
 			</f:facet>
 		</p:menubar>
