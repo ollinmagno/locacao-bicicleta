@@ -62,18 +62,18 @@ Acesso o endereço:
 
 * [commons-beanutils-1.8.2.jar](https://mvnrepository.com/artifact/commons-beanutils/commons-beanutils/1.8.2)
 
-*[commons-collections-3.2.1.jar]
+*[commons-collections-3.2.1.jar](https://mvnrepository.com)
 
-*[commons-digester-2.1.jar]
+*[commons-digester-2.1.jar](https://mvnrepository.com)
 
-*[commons-javaflow-20060411.jar]
+*[commons-javaflow-20060411.jar](https://mvnrepository.com)
 
-*[commons-logging-1.1.jar]
+*[commons-logging-1.1.jar](https://mvnrepository.com)
 
-*[iText-2.1.7.js2.jar]
+*[iText-2.1.7.js2.jar](https://mvnrepository.com)
 
-*[jasperreports-5.6.0.jar]
+*[jasperreports-5.6.0.jar](https://mvnrepository.com)
 
-*[jdt-compiler-3.1.1.jar]
+*[jdt-compiler-3.1.1.jar](https://mvnrepository.com)
 
-*[jcommon-1.0.15.jar]
+*[jcommon-1.0.15.jar](https://mvnrepository.com)
