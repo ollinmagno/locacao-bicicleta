@@ -31,10 +31,9 @@
 					</p:submenu>
 					<p:menuitem value="File" url="#" />
 				</p:submenu>
-			</p:submenu>
-			
+			</p:submenu>		
 			<p:submenu label="relatórios" icon="pi pi-cog">
-				<p:menuitem value="lista de bicicletas" action="#{emitirRelatorioBean.emitirRelatorioAction()}" ajax="false" onclick="this.form.target='_blank'"/>
+				<p:menuitem value="lista de bicicletas" url="/locacao-bicicleta/teste.xhtml"/>
 				<p:menuitem value="lista de locações" url="#" />
 				<p:submenu label="teste" icon="pi pi-refresh">
 					<p:menuitem value="teste" action="#{menuView.save}"
@@ -54,7 +53,7 @@
 			<f:facet name="options">
 				<p:inputText style="margin:1px 10px 1px 1px;"
 					placeholder="Buscar..." />
-				<p:commandButton type="button" value="sair" icon="pi pi-home"
+				<p:commandLink value="Sair" icon="pi pi-home"
 					action="#{loginBean.deslogar}"/>
 			</f:facet>
 		</p:menubar>
