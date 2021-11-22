@@ -9,6 +9,7 @@ public class Bicicleta {
 	private boolean desativada;
 	private int aro;
 	private Modelo modelo;
+	private CorBicicleta corBicicleta;
 
 	public Bicicleta() {
 
@@ -26,7 +27,14 @@ public class Bicicleta {
 		this.aro = aro;
 		this.modelo = modelo;
 	}
+	
+	public CorBicicleta getCorBicicleta() {
+		return corBicicleta;
+	}
 
+	public void setCorBicicleta(CorBicicleta corBicicleta) {
+		this.corBicicleta = corBicicleta;
+	}
 	public boolean isDesativada() {
 		return desativada;
 	}
@@ -86,7 +94,7 @@ public class Bicicleta {
 	@Override
 	public String toString() {
 		return "Bicicleta [id=" + id + ", cor=" + cor + ", marchas=" + marchas + ", aro=" + aro + ", modelo="
-				+ modelo.getMarca() + ", Preço por hora=" + modelo.getPrecoPorHora() + "]";
+				+ modelo.getMarca() + ", Preï¿½o por hora=" + modelo.getPrecoPorHora() + "]";
 	}
 
 }
