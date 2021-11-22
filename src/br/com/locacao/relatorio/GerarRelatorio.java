@@ -1,11 +1,9 @@
 package br.com.locacao.relatorio;
 
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.HashMap;
 import java.util.Map;
 
 import javax.faces.context.FacesContext;
@@ -20,7 +18,7 @@ import net.sf.jasperreports.engine.JasperRunManager;
 public class GerarRelatorio {
 	private HttpServletResponse response;
 	private FacesContext context;
-
+	
 	public GerarRelatorio() {
 		this.context = FacesContext.getCurrentInstance();
 		this.response = (HttpServletResponse) context.getExternalContext().getResponse();
@@ -53,4 +51,5 @@ public class GerarRelatorio {
 		servletOutputStream.flush();
 		servletOutputStream.close();
 	}
+	
 }
