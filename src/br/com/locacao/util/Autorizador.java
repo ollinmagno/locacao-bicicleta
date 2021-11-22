@@ -24,7 +24,7 @@ public class Autorizador implements PhaseListener {
 		if(usuarioLogado != null && nomePagina.equals("/login.xhtml")) {
 			System.out.println("hello world autenticação.....................");
 			NavigationHandler hand = context.getApplication().getNavigationHandler();
-			hand.handleNavigation(context, null, "/bicicletas.xhtml?faces-redirect=true");
+			hand.handleNavigation(context, null, "/index.xhtml?faces-redirect=true");
 			context.renderResponse();
 		}
 		if("/login.xhtml".equals(nomePagina)) {
