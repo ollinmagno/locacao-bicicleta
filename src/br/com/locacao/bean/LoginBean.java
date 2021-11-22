@@ -21,12 +21,12 @@ public class LoginBean {
 	}
 	
 	public RedirectView efetueLogin() throws SQLException {
-		System.out.println("fazendo login do usuário: "+ this.usuario.getEmail());
+		System.out.println("fazendo login do usuï¿½rio: "+ this.usuario.getEmail());
 		FacesContext context = FacesContext.getCurrentInstance();
 		boolean existe = new UsuarioDAO().usuarioExiste(this.usuario);
 		if(existe) {
 			context.getExternalContext().getSessionMap().put("usuarioLogado", this.usuario);
-			return new RedirectView("bicicletas");
+			return new RedirectView("index");
 		}
 		context.getExternalContext().getFlash().setKeepMessages(true);
 		error();
@@ -34,7 +34,7 @@ public class LoginBean {
 	}
 	private void error() {
 		FacesContext.getCurrentInstance().addMessage(null,
-				new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro!", "Usuário ou senha incorreto. Confira-a."));
+				new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro!", "Usuï¿½rio ou senha incorreto. Confira-a."));
 	}
 	public RedirectView deslogar() {
 		FacesContext context = FacesContext.getCurrentInstance();
