@@ -8,6 +8,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import br.com.locacao.dao.BicicletaDAO;
 import br.com.locacao.modelo.Bicicleta;
+import br.com.locacao.modelo.CorBicicleta;
 
 @ManagedBean
 @ViewScoped
@@ -15,6 +16,10 @@ public class BicicletaBean {
 	private Bicicleta bicicleta = new Bicicleta();
 	private BicicletaDAO daoBicicleta = new BicicletaDAO();
 	
+	public CorBicicleta[] getCores() {
+		return CorBicicleta.values();
+	}
+
 	public Bicicleta getBicicleta() {
 		return bicicleta;
 	}
@@ -26,4 +31,7 @@ public class BicicletaBean {
 		return this.daoBicicleta.buscarBicicleta(id);
 	}
 	
+	public Bicicleta getCorBicicleta(String cor) {
+		return this.daoBicicleta.filtarBuscaDeBicicletaPelaCor(cor);
+	}
 }
