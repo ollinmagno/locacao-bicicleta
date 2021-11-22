@@ -79,5 +79,40 @@ public class BicicletaDAO {
 		}
 		return bicicleta;
 	}
-
+	
+	public Bicicleta filtarBuscaDeBicicletaPelaCor(String cor) {
+		Bicicleta bicicleta = new Bicicleta();
+		String sql = "select bicicleta.cor from bicicleta where bicicleta.cor = ?;";		
+		try(Connection connection = new ConnectionFactory().recuperarConexao()){
+			try(PreparedStatement pstm = connection.prepareStatement(sql)){
+				pstm.setString(1, cor);
+				try(ResultSet resultset = pstm.executeQuery()){
+					while (resultset.next()) {
+						bicicleta.setCor(resultset.getString(1));
+					}
+				}
+			}
+		} catch(SQLException e) {
+			System.out.println(e);
+		}
+		return bicicleta;
+	}
+	
+	public List<String> listaTodasCores() {
+		String sql = "select DISTINCT bicicleta.cor from bicicleta";
+		List<String> listaCores = new ArrayList<>();
+		
+		try(Connection connection = new ConnectionFactory().recuperarConexao()){
+			try(PreparedStatement pstm = connection.prepareStatement(sql)){
+				try(ResultSet resultset = pstm.executeQuery()){
+					while (resultset.next()) {
+						listaCores.add(resultset.getString(1));
+					}
+				}
+			}
+		} catch(SQLException e) {
+			System.out.println(e);
+		}
+		return listaCores;
+	}
 }

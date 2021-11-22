@@ -16,10 +16,19 @@
 		</p:messages>
 		<h:form>
 		
-		<p:commandButton value="Imprimir relatório" action="#{emitirRelatorioBean.emitirRelatorioAction()}" 
+		<h:outputText value="SELECIONE UMA COR: "/>
+		
+		<br/>
+			<p:selectOneMenu value="#{bicicletaBean.corSelecionada}" >
+				<f:selectItem itemLabel="Selecione" itemValue=""/>
+	        	<!-- <f:selectItem itemLabel="RED" itemValue="Vermelho"/> -->
+	        	<f:selectItems value="#{bicicletaBean.listaCores}"/>
+		    </p:selectOneMenu>
+		
+		<br/>
+		<p:spacer height="40"/>
+		<p:commandButton value="Imprimir relatório" action="#{bicicletaBean.emitirRelatorioAction()}" 
 		ajax="false" onclick="this.form.target='_blank'"/>
-	
-		<br/><br/>
 		
 		</h:form>
 	</ui:define>
