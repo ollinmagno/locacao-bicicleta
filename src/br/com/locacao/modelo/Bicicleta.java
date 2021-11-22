@@ -27,6 +27,9 @@ public class Bicicleta {
 		this.aro = aro;
 		this.modelo = modelo;
 	}
+	public enum CorBicicleta {
+		BRANCO, VERMELHO, PRETO, AMARELO, AZUL, LARANJA, ROSA, VERDE;
+	}
 	
 	public CorBicicleta getCorBicicleta() {
 		return corBicicleta;
