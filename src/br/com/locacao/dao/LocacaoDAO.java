@@ -70,7 +70,6 @@ public class LocacaoDAO {
 		}
 		return funcionou;
 	}
-
 	public List<Locacao> historicoGeralDeLocacao() throws SQLException {
 		List<Locacao> historicoDeLocacoes = new ArrayList<Locacao>();
 

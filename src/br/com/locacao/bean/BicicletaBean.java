@@ -2,6 +2,7 @@ package br.com.locacao.bean;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -17,7 +18,6 @@ import net.sf.jasperreports.engine.JRException;
 @ManagedBean
 @ViewScoped
 public class BicicletaBean {
-	private Bicicleta bicicleta = new Bicicleta();
 	private BicicletaDAO daoBicicleta = new BicicletaDAO();
 	private String corSelecionada;
 	private List<String> listaCores;
@@ -39,6 +39,7 @@ public class BicicletaBean {
 		HashMap<String, Object> parametros = new HashMap<String, Object>() {{
 	        put("COR", getCorSelecionada());
 	    }};
+	    gerarRelatorio.gerarZip();
 		gerarRelatorio.gerarRelatorio("lista-bike-cor", parametros, "relatorio");
 	}
 	
@@ -54,14 +55,10 @@ public class BicicletaBean {
 		return Bicicleta.CorBicicleta.values();
 	}
 
-	public Bicicleta getBicicleta() {
-		return bicicleta;
-	}
-	
 	public List<Bicicleta> getBicicletas() throws SQLException{
 		return this.daoBicicleta.listaBicicletas();
 	}
-	public Bicicleta getBicicleta(int id) throws SQLException{
+	public Bicicleta getBicicletaId(int id) throws SQLException{
 		return this.daoBicicleta.buscarBicicleta(id);
 	}
 	

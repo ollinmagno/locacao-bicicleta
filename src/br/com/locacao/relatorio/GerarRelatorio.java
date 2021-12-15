@@ -1,10 +1,14 @@
 package br.com.locacao.relatorio;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Map;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipOutputStream;
 
 import javax.faces.context.FacesContext;
 import javax.servlet.ServletException;
@@ -50,6 +54,19 @@ public class GerarRelatorio {
 		FacesContext.getCurrentInstance().responseComplete();
 		servletOutputStream.flush();
 		servletOutputStream.close();
+	}
+	public void gerarZip() throws IOException {
+		String teste = "";
+		File f = new File("C:\\test.zip");
+		ZipOutputStream out = new ZipOutputStream(new FileOutputStream(f));
+		ZipEntry e = new ZipEntry("mytext.txt");
+		out.putNextEntry(e);
+
+		byte[] data = teste.getBytes();
+		out.write(data, 0, data.length);
+		out.closeEntry();
+
+		out.close();
 	}
 	
 }
