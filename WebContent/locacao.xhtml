@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<ui:composition template="_template.xhtml">
+	<ui:define name="conteudo">
+		<h:head>
+			<link rel="stylesheet"
+				href="#{facesContext.externalContext.requestContextPath}/resources/css/style.css" />
+		</h:head>
+		<h:form>
+			<p:panelGrid columns="1">
+					<f:facet name="header">
+						<h:outputText value="LOCAR BICICLETA" />
+					</f:facet>
+	
+					<h:outputText value="Cor: " />
+					<h:outputText value="" />
+	
+					<h:outputText value="Aro: " />
+					<h:outputText value="" />
+	
+					<h:outputText value="Marchas: " />
+					<h:outputText value="" />
+	
+					<h:outputText value="Modelo: " />
+					<h:outputText value="" />
+					
+					<h:outputText value="Preço por hora: " />
+					<h:outputText value="" />
+			</p:panelGrid>
+			<br/>
+			<p:outputLabel for="dateTimeLocacao" value="Hora da locação:" />
+			<p:calendar id="dateTimeLocacao" value="#{calendarView.dateTimeLocacao}" locale="pt" pattern="dd.MM.yyyy HH:mm" />
+			<br/><br/>
+			<p:outputLabel for="dateTimeDevolucao" value="Devolução:" />
+			<p:calendar id="dateTimeDevolucao" value="#{calendarView.dateTimeDevolucao}" locale="pt" pattern="dd.MM.yyyy HH:mm" />
+			
+			<br/><br/>
+			
+			<p:growl id="message" showDetail="true" />
+		    <p:commandButton value="Confirmar" action="#{dialogView.destroyWorld}" update="message">
+		        <p:confirm header="Confirmar" message="Deseja locar ?" icon="pi pi-exclamation-triangle" />
+		    </p:commandButton>
+		    <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+		        <p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" icon="pi pi-check" />
+		        <p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="pi pi-times" />
+		    </p:confirmDialog>
+		</h:form>
+	</ui:define>
+</ui:composition>
+
+</html>
